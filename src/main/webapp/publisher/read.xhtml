@@ -36,16 +36,14 @@
             </div>
             <div class="row mt-1">
                 <div class="col-md-4 offset-md-4">
-                    <h:panelGroup rendered="#{userBean.isAdmin}"> 
-                        <h:outputLink class="btn btn-info mr-1" value="update.xhtml">
-                            <f:param name="id" value="#{publisherBean.readPublisher.publisherId}" />
-                            <h:outputText value="Update" />
-                        </h:outputLink>
-                        <h:outputLink class="btn btn-danger mr-1" value="delete.xhtml">
-                            <f:param name="id" value="#{publisherBean.readPublisher.publisherId}" />
-                            <h:outputText value="Delete" />
-                        </h:outputLink>
-                    </h:panelGroup>
+                    <h:outputLink rendered="#{userBean.loggedIn}" class="btn btn-info mr-1" value="update.xhtml">
+                        <f:param name="id" value="#{publisherBean.readPublisher.publisherId}" />
+                        <h:outputText value="Update" />
+                    </h:outputLink>
+                    <h:outputLink rendered="#{userBean.isAdmin}" class="btn btn-danger mr-1" value="delete.xhtml">
+                        <f:param name="id" value="#{publisherBean.readPublisher.publisherId}" />
+                        <h:outputText value="Delete" />
+                    </h:outputLink>
                     <h:outputLink class="btn btn-primary" value="list.xhtml?faces-redirect=true" >
                         All Publisher
                     </h:outputLink>

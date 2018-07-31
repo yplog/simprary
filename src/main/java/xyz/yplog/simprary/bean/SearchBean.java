@@ -1,5 +1,6 @@
 package xyz.yplog.simprary.bean;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import javax.faces.bean.ManagedBean;
@@ -13,7 +14,7 @@ import xyz.yplog.simprary.repository.PublisherRepository;
 
 @ManagedBean
 @SessionScoped
-public class SearchBean {
+public class SearchBean implements Serializable{
     private String searchString;
     private List<Book> bookList;
     private List<Publisher> publisherList;

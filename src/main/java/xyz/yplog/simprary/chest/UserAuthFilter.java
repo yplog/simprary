@@ -11,8 +11,8 @@ import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-@WebFilter(urlPatterns = "/*", filterName = "AuthFilter")
-public class AuthFilter implements Filter{
+@WebFilter(urlPatterns = "/*", filterName = "UserAuthFilter")
+public class UserAuthFilter implements Filter {
 
     @Override
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -24,10 +24,10 @@ public class AuthFilter implements Filter{
         HttpServletResponse res = (HttpServletResponse) response;
         String path = ((HttpServletRequest) request).getRequestURI();
         
-        if((String) req.getSession().getAttribute("admin") == null){
-            if((String) req.getSession().getAttribute("user") != null && path.contains("update")){
+        if((String) req.getSession().getAttribute("user") == null){
+            if((String) req.getSession().getAttribute("admin") != null && (path.contains("create") || path.contains("delete"))){
                 chain.doFilter(request, response);
-            } else {
+            }else {
                 res.sendRedirect(req.getContextPath() + "/user/login.xhtml");
             }
         } else {

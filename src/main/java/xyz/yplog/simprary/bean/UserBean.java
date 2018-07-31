@@ -46,7 +46,7 @@ public class UserBean implements Serializable{
             password = null;
             
             FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-                                                                  .put("login", user.getUserName());
+                                                                  .put("admin", user.getUserName());
             
             return "index";
         } else {
@@ -61,6 +61,9 @@ public class UserBean implements Serializable{
                 readUser = user;
                 loggedIn = true;
                 isAdmin = false;
+                
+                FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                                                                      .put("user", user.getUserName());
                 
                 userName = null;
                 password = null;
@@ -88,10 +91,10 @@ public class UserBean implements Serializable{
                 
                 if(isAdmin)
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-                                                                          .put("login", user.getUserName());
+                                                                          .put("admin", user.getUserName());
                 else
                     FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-                                                                          .put("login", null);
+                                                                          .put("user", user.getUserName());
                     
                 return "index";
             }
@@ -120,7 +123,10 @@ public class UserBean implements Serializable{
         password = null;
         
         FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
-                                                              .put("login", null);
+                                                              .put("admin", null);
+        
+        FacesContext.getCurrentInstance().getExternalContext().getSessionMap()
+                                                              .put("user", null);
         
         return "index";
     }
