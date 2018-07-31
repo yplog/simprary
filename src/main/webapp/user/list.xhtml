@@ -1,0 +1,45 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="../base.xhtml">
+    
+    <ui:param name="pageTitle" value="User List" />
+    
+    <ui:define name="content">
+        <div class="row">
+                <h1 class="text-center col">User List</h1>
+        </div>
+        <h:form>
+            <div class="row">
+                <div class="col">
+                    <h:dataTable class="table" value="#{userBean.list()}" var="user">
+                        <h:column>
+                            <f:facet name="header">Name</f:facet>
+                            <h:outputText value="#{user.userName}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Admin?</f:facet>
+                            <h:selectBooleanCheckbox value="#{user.userIsAdmin}" />
+                        </h:column>
+                        <h:column>
+                            <f:facet name="header">Delete</f:facet>
+                            <h:commandLink class="btn btn-danger" action="#{userBean.delete()}" value="Delete">
+                                <f:param name="id" value="#{user.userId}" />
+                            </h:commandLink>
+                        </h:column>
+                    </h:dataTable>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <h:commandLink class="btn btn-success" action="#{userBean.update()}" value="Update" />
+                </div>
+            </div>
+            
+        </h:form>
+    </ui:define>
+</ui:composition>

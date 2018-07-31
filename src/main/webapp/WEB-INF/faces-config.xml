@@ -1,0 +1,360 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<faces-config version="2.2"
+              xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-facesconfig_2_2.xsd">
+     
+    <!-- INDEX -->
+    <navigation-rule>
+        <from-view-id>/index.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+            <redirect />
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- USER -->
+    <!-- USER CREATE -->
+    <navigation-rule>    
+        <from-view-id>/user/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- USER LOGIN -->
+    <navigation-rule>
+        <from-view-id>/user/login.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- USER LIST -->
+    <navigation-rule>
+        <from-view-id>/user/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/list</from-outcome>
+            <from-action>#{userBean.delete()}</from-action>
+            <to-view-id>/user/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/list</from-outcome>
+            <from-action>#{userBean.update()}</from-action>
+            <to-view-id>/user/list.xhtml</to-view-id>
+            <redirect/>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- AUTHOR -->
+    <!-- AUTHOR CREATE -->
+    <navigation-rule>
+        <from-view-id>/author/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>author/list</from-outcome>
+            <to-view-id>/author/list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- AUTHOR LIST -->
+    <navigation-rule>
+        <from-view-id>/author/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- AUTHOR READ -->
+    <navigation-rule>
+        <from-view-id>/author/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- AUTHOR UPDATE -->
+    <navigation-rule>
+        <from-view-id>/author/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- AUTHOR DELETE -->
+    <navigation-rule>
+        <from-view-id>/author/delete.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUNLISHER -->
+    <!-- PUBLISHER LIST -->
+    <navigation-rule>
+        <from-view-id>/publisher/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUBLISHER CREATE -->
+    <navigation-rule>
+        <from-view-id>/publisher/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>publisher/list</from-outcome>
+            <to-view-id>/publisher/list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUBLISHER READ -->
+    <navigation-rule>
+        <from-view-id>/publisher/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUBLISHER UPDATE -->
+    <navigation-rule>
+        <from-view-id>/publisher/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUBLISHER DELETE -->
+    <navigation-rule>
+        <from-view-id>/publisher/delete.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- BOOK -->
+    <!-- BOOK CREATE -->
+    <navigation-rule>
+        <from-view-id>/book/create.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>book/list</from-outcome>
+            <to-view-id>/book/list.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- BOOK DELETE -->
+    <navigation-rule>
+        <from-view-id>/book/delete.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- BOOK UPDATE -->
+    <navigation-rule>
+        <from-view-id>/book/update.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUBLISHER READ -->
+    <navigation-rule>
+        <from-view-id>/book/read.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    
+    <!-- PUBLISHER LIST -->
+    <navigation-rule>
+        <from-view-id>/book/list.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>index</from-outcome>
+            <to-view-id>/index.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/login</from-outcome>
+            <to-view-id>/user/login.xhtml</to-view-id>
+        </navigation-case>
+        <navigation-case>
+            <from-outcome>user/create</from-outcome>
+            <to-view-id>/user/create.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <application>
+        <resource-bundle>
+            <base-name>/Bundle</base-name>
+            <var>bundle</var>
+        </resource-bundle>
+    </application>
+</faces-config>

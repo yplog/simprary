@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+        xmlns:h="http://xmlns.jcp.org/jsf/html"
+        xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+    
+    <header>
+        <h:form>
+            <nav class="navbar navbar-light bg-light">
+                <h:link class="navbar-brand" value="Simprary" outcome="index" >
+                    <img src="https://image.flaticon.com/icons/svg/182/182323.svg" width="30" height="30" class="d-inline-block align-top" alt="books" />
+                </h:link>
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <h:panelGroup rendered="#{!userBean.loggedIn}">
+                            <h:link class="btn btn-outline-success mr-1" value="Login" outcome="user/login" />
+                            <h:link class="btn btn-outline-success" value="Register" outcome="user/create" />
+                        </h:panelGroup>
+                        <h:commandButton action="#{userBean.logout()}" rendered="#{userBean.loggedIn}" value="Logout" class="btn btn-outline-success mr-1"  />
+                    </li>
+                </ul>
+            </nav>
+        </h:form>
+    </header>
+</ui:composition>

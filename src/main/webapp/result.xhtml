@@ -1,0 +1,85 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:f="http://xmlns.jcp.org/jsf/core"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="base.xhtml">
+    
+    <ui:param name="PageTitle" value="Search Result" />
+ 
+    <ui:define name="content">
+        
+        <div class="row">
+                <h1 class="text-center col">Search Result</h1>
+        </div>
+        <h:form>
+            <div class="row mt-1">
+                <div class="col-md-6 offset-md-3">
+                    <div class="input-group mb-3">
+                        <h:inputText autocomplete="off" class="form-control" value="#{searchBean.searchString}" />
+                        <div class="input-group-append">
+                            <h:commandButton class="btn btn-outline-primary" value="Search" action="#{searchBean.search()}" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row mt-1">
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Books
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <ui:repeat value="#{searchBean.bookList}" var="book">
+                                <li class="list-group-item">
+                                    <h:outputLink value="book/read.xhtml">
+                                        <f:param name="id" value="#{book.bookId}" />
+                                        <h:outputText value="#{book.bookName}" />
+                                    </h:outputLink>
+                                </li>
+                            </ui:repeat>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Authors
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <ui:repeat value="#{searchBean.authorList}" var="author">
+                                <li class="list-group-item">
+                                    <h:outputLink value="author/read.xhtml">
+                                        <f:param name="id" value="#{author.authorId}" />
+                                        <h:outputText value="#{author.authorName}" />
+                                    </h:outputLink>
+                                </li>
+                            </ui:repeat>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card">
+                        <div class="card-header">
+                            Publishers
+                        </div>
+                        <ul class="list-group list-group-flush">
+                            <ui:repeat value="#{searchBean.publisherList}" var="publisher">
+                                <li class="list-group-item">
+                                    <h:outputLink value="publisher/read.xhtml">
+                                        <f:param name="id" value="#{publisher.publisherId}" />
+                                        <h:outputText value="#{publisher.publisherName}" />
+                                    </h:outputLink>
+                                </li>
+                            </ui:repeat>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </h:form>
+    
+    
+</ui:define>
+    
+</ui:composition>
