@@ -26,16 +26,16 @@ public class AuthorBean implements Serializable{
     
     public String create(){
         if(Trinkets.isThereAuthorName(readAuthor.getAuthorName())){
-            FacesContext.getCurrentInstance()
-                    .addMessage(null, new FacesMessage("There can not be two authors with the same name"));
+            AuthorRepository repo = new AuthorRepository();
+            repo.create(readAuthor);
         
-            return "/author/create.xhtml";
+        return "/author/list";
         }
         
-        AuthorRepository repo = new AuthorRepository();
-        repo.create(readAuthor);
+        FacesContext.getCurrentInstance()
+                    .addMessage(null, new FacesMessage("There can not be two authors with the same name"));
         
-        return "/author/list.xhtml?faces-redirect=true";
+        return "/author/create";
     }
     
     public String update(){

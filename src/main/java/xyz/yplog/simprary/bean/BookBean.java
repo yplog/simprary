@@ -41,29 +41,29 @@ public class BookBean implements Serializable{
     
     public String create(){
         if(Trinkets.isThereIsbn(readBook.getBookIsbn())){
-            FacesContext.getCurrentInstance()
+            BookRepository repo = new BookRepository();
+        
+            if(selectedAuthorId != 0){
+                AuthorRepository authorRepository = new AuthorRepository();
+                Author author = authorRepository.read(selectedAuthorId);
+                readBook.setBookAuthor(author);
+            }
+
+            if(selectedPublisherId != 0){
+                PublisherRepository publisherRepository = new PublisherRepository();
+                Publisher publisher = publisherRepository.read(selectedPublisherId);
+                readBook.setBookPublisher(publisher);
+            }
+
+            repo.create(readBook);
+
+            return "/book/list";
+        }
+        
+        FacesContext.getCurrentInstance()
                     .addMessage(null, new FacesMessage("There can not be two books with the same isbn"));
         
-            return "/book/create.xhtml";
-        }
-        
-        BookRepository repo = new BookRepository();
-        
-        if(selectedAuthorId != 0){
-            AuthorRepository authorRepository = new AuthorRepository();
-            Author author = authorRepository.read(selectedAuthorId);
-            readBook.setBookAuthor(author);
-        }
-        
-        if(selectedPublisherId != 0){
-            PublisherRepository publisherRepository = new PublisherRepository();
-            Publisher publisher = publisherRepository.read(selectedPublisherId);
-            readBook.setBookPublisher(publisher);
-        }
-        
-        repo.create(readBook);
-        
-        return "/book/list.xhtml?faces-redirect=true";
+        return "/book/create";
     }
 
     public String update(){
