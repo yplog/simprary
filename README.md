@@ -24,5 +24,7 @@ kendi veri tabaniniza gore yapilandirin:
 Yapilandirma sonrasi `mvn clean package` komutunu calisitiralim. Bu komut sonrasi proje icinde *target* 
 dizininizin olusmus olmasi gerekiyor.  
 *target* dizininde bulunan *.war* uzantili paketi GlassFish admin arayuzu uzerinden *Deploy Application* altinda bulunan
-*Location* kismindan secerek deploy edebilirsiniz.
+*Location* kismindan secerek deploy edebilirsiniz.  
+_NOT:_ Sisteme giris yapan ilk kullanici admin olarak atanir. Daha sonra diger kullanicilarin yetkisini duzenleyebilir. 
+
 ![simprary](http://i67.tinypic.com/16awkqu.jpg)
