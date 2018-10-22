@@ -1,1 +1,1 @@
-src/main/webapp/* linguist-vendored
+*.xhtml linguist-vendored
